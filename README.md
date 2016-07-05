@@ -5,6 +5,8 @@ Various configurations for code checks for Android.
 Contains modifications to the default configurations to remove silly
 or senseless warnings, and to fix compatibility issues with the checker.
 
+Uses the [Noveogroup Android Check plugin](https://github.com/noveogroup/android-check) for Gradle.
+
 ### Included code checks
 
 * Android Lint
@@ -15,7 +17,7 @@ or senseless warnings, and to fix compatibility issues with the checker.
 ### Usage
 
 1. Place the xml files of this repo into the `/config` folder in your project.
-2. Add this plugin to your root, project level build.gradle: `classpath 'com.noveogroup.android:check:1.2.2'`
+2. Add this plugin to your root, project level build.gradle: `classpath 'com.noveogroup.android:check:1.2.3'`
 3. Add the following to your module level build.gradle:
 
 		

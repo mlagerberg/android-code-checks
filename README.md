@@ -30,9 +30,11 @@ Uses the [Noveogroup Android Check plugin](https://github.com/noveogroup/android
 			...
 			
 			lintOptions {
-		        abortOnError false
-		        checkReleaseBuilds true
-		        lintConfig file("${project.rootDir}/config/lint.xml")
+				abortOnError false
+				checkReleaseBuilds true
+				lintConfig file("${project.rootDir}/config/lint.xml")
+				xmlOutput file("${project.buildDir}/reports/lint/lint.xml")
+				htmlOutput file("${project.buildDir}/reports/lint/lint.html")
 		    }
 		}
 
@@ -58,6 +60,8 @@ Uses the [Noveogroup Android Check plugin](https://github.com/noveogroup/android
 		    }
 		
 		    findbugs {
+		        // Note: set this to false when you run into this issue:
+		        // https://github.com/noveogroup/android-check/issues/14
 		        skip false
 		        abortOnError false
 		        config "${project.rootDir}/config/findbugs.xml"
@@ -68,7 +72,7 @@ Uses the [Noveogroup Android Check plugin](https://github.com/noveogroup/android
 		}
 		
 4. When using Jenkins, configure it to publish results using these paths:
-	* **Lint**:  	`**/lint-results-*.xml`
+	* **Lint**:  	`**/build/reports/lint/lint.xml`
 	* **Checkstyle**: `**/build/reports/checkstyle/checkstyle.xml`
 	* **Findbugs**: `**/build/reports/findbugs/findbugs.xml`
 	* **PMD**: `**/build/reports/pmd/pmd.xml`
